@@ -1,30 +1,39 @@
+import axios from "axios";
 const state = {
-  products: [
-    {
-      id: 1,
-      title: "A",
-      Des: "AAAAAAAAAA",
-    },
-    {
-      id: 2,
-      title: "B",
-      Des: "BBBBBBBBBBB",
-    },
-    {
-      id: 3,
-      title: "C",
-      Des: "CCCCCCCCCCCC",
-    },
-  ],
+  products: [],
 };
 
 const getters = {
   allProducts: (state) => state.products,
 };
 
-const mutations = {};
+const actions = {
+  async getProducts({ commit }) {
+    const response = await axios.get("http://localhost:3000/products");
+    commit("setProducts", response.data);
+  },
 
-const actions = {};
+  async addProduct({ commit }, product) {
+    const response = await axios.post(
+      "http://localhost:3000/products",
+      product
+    );
+    commit("addProduct", response.data);
+  },
+
+  async deleteProduct({ commit }, id) {
+    const response = await axios.delete(`http://localhost:3000/products/${id}`);
+    commit("removeProduct", id);
+    console.log("res", response);
+  },
+};
+
+const mutations = {
+  setProducts: (state, products) => (state.products = products),
+  addProduct: (state, product) => state.products.push(product),
+  removeProduct: (state, id) =>
+    state.products.filter((product) => product.id !== id),
+};
 
 export default {
   state,

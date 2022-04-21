@@ -1,16 +1,18 @@
 <template>
-
+<AddProduct />
   <Products />
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import Products from './components/Products.vue'
+import AddProduct from './components/AddProduct.vue'
 
 export default {
   name: 'App',
   components: {
-    Products
+    Products,
+    AddProduct
   }
 }
 </script>
