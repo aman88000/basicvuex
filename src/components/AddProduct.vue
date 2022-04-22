@@ -20,9 +20,9 @@ export default {
   methods:{
       ...mapActions(["addProduct"]),
       onSubmit(){
-          console.log('testing')
+          
           this.addProduct({
-              title: this.title,
+              title: this.title.toUpperCase(),
           })
 
           this.title = ''

@@ -16,18 +16,5 @@
   "profile": {
     "name": "typicode"
   },
-  "products": [
-    {
-      "title": "saacsac",
-      "id": 1
-    },
-    {
-      "title": "sacsac",
-      "id": 6
-    },
-    {
-      "title": "sacsac",
-      "id": 7
-    }
-  ]
+  "products": []
 }

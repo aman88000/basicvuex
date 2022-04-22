@@ -22,9 +22,9 @@ const actions = {
   },
 
   async deleteProduct({ commit }, id) {
-    const response = await axios.delete(`http://localhost:3000/products/${id}`);
+    await axios.delete(`http://localhost:3000/products/${id}`);
     commit("removeProduct", id);
-    console.log("res", response);
+    //console.log("res", response);
   },
 };
 
